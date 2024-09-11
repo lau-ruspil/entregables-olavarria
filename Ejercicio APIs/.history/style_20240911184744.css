@@ -1,0 +1,9 @@
+#containerCard {
+  width: 90%;
+  height: 80%;
+  text-align: center;
+}
+.card {
+  background-color: #a9a9a9;
+  margin: 10px;
+}

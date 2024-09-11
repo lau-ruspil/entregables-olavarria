@@ -1,0 +1,27 @@
+/* Estilos Generales */
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Contenedor de las tarjetas */
+#containerCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilos de cada tarjeta */
+.card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s;
+}
+
+/* Efecto hover en las tarjetas */
