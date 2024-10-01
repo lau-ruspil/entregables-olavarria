@@ -1,5 +1,7 @@
-import { Auto, Moto, Camion } from "./Vehiculos";
-import { RegistroAutomotor } from "./registroAutomotor";
+import { Auto } from "./Auto";
+import { Moto } from "./Moto";
+import { Camion } from "./Camion";
+import { RegistroAutomotor } from "./RegistroAutomotor";
 
 // Crear instancias de los vehiculos
 const auto1 = new Auto("Volkswagen", "Vento", 2023, "AG 858 FG");
