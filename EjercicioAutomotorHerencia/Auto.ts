@@ -1,8 +1,25 @@
 import { Vehiculo } from "./vehiculo";
 
 export class Auto extends Vehiculo {
-	constructor(marca: string, modelo: string, tipo: number, patente: string) {
+	private tipoCombustible: string;
+
+	constructor(
+		marca: string,
+		modelo: string,
+		tipo: number,
+		patente: string,
+		tipoCombustible: string
+	) {
 		super(marca, modelo, tipo, patente);
+		this.tipoCombustible = tipoCombustible;
+	}
+
+	public getCombustible(): string {
+		return this.tipoCombustible;
+	}
+
+	public setTipoCombustible(combustible: string): void {
+		this.tipoCombustible = combustible;
 	}
 
 	public getInfo(): string {
@@ -12,23 +29,7 @@ export class Auto extends Vehiculo {
 				Modelo: ${this.modelo}
 				Tipo: ${this.tipo}
 				Patente: ${this.patente}
+				Combustible: ${this.tipoCombustible}
 		`;
-	}
-
-	// Metodo para acceder a la patente
-	public getPatente(): string {
-		return this.patente;
-	}
-
-	public setInfo(
-		marca: string,
-		modelo: string,
-		tipo: number,
-		patente: string
-	) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.tipo = tipo;
-		this.patente = patente;
 	}
 }

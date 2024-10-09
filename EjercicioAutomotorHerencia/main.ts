@@ -3,45 +3,54 @@ import { Moto } from "./Moto";
 import { Camion } from "./Camion";
 import { RegistroAutomotor } from "./RegistroAutomotor";
 
-// Crear instancias de los vehiculos
-const auto1 = new Auto("Volkswagen", "Vento", 2023, "AG 858 FG");
-const auto2 = new Auto("Toyota", "Corolla", 2023, "AG 418 CH");
-const moto1 = new Moto("Yamaha", "YZ", 2023, "E482VAM");
-const moto2 = new Moto("Honda", "CBR", 2022, "D269RFM");
-const camion1 = new Camion("Mercedes Benz", "Actros", 2022, "AF 723 BC");
-
-// Crear una instancia del Registro Automotor
+// Instanciando el registro del automotor
 const registro = new RegistroAutomotor();
 
-// Agregar los vehiculos al registro del automotor
+// Instanciando y agregando un Auto
+const auto1 = new Auto("Toyota", "Corolla", 4, "AA 123 BB", "Eléctrico");
 registro.agregarVehiculo(auto1);
-registro.agregarVehiculo(auto2);
-registro.agregarVehiculo(moto1);
-registro.agregarVehiculo(moto2);
+
+// Instanciando y agregando un Camion
+const camion1 = new Camion("Ford", "F-150", 6, "AC 987 CD", 5000); // Capacidad en kg
 registro.agregarVehiculo(camion1);
 
-// Dar de baja un vehiculo
-const baja = registro.darDeBajaVehiculo("Camion", "AF 723 BC");
-console.log(baja);
+// Instanciando y agregando una Moto
+const moto1 = new Moto("Honda", "CBR 1000", 2, "AA 456 AA", 1000); // Cilindrada en cc
+registro.agregarVehiculo(moto1);
 
-// Modificacion de un vehiculo
-const resultadoModificacion = registro.modificarVehiculo(
-	"Auto",
-	"Ford",
-	"Focus",
-	2022,
-	"AF 470 CH"
-);
-console.log(resultadoModificacion);
-
-// Obtener Y mostrar la lista de Autos con su info
+// Obtener la lista de vehículos de tipo Auto
 console.log("Lista de Autos:");
 console.log(registro.getVehiculoPorTipo("Auto"));
 
-// Obtener Y mostrar la lista de Motos con su info
+// Obtener la lista de vehículos de tipo Camion
+console.log("Lista de Camiones:");
+console.log(registro.getVehiculoPorTipo("Camion"));
+
+// Obtener la lista de vehículos de tipo Moto
 console.log("Lista de Motos:");
 console.log(registro.getVehiculoPorTipo("Moto"));
 
-// Obtener Y mostrar la lista de Camiones con su info
-console.log("Lista de Camiones:");
-console.log(registro.getVehiculoPorTipo("Camion"));
+// Uso de métodos específicos
+console.log(
+	`Tipo de combustible del auto con patente AA 123 BB: ${auto1.getCombustible()}`
+);
+console.log(
+	`Capacidad de carga del camión con patente AC 987 CD: ${camion1.getCapacidadDeCarga()} kg`
+);
+console.log(
+	`Cilindrada de la moto con patente AA 456 AA: ${moto1.getCilindrada()} cc`
+);
+
+// Modificar un Auto
+console.log("Modificando el Auto con patente AA 123 BB...");
+console.log(
+	registro.modificarVehiculo("Auto", "Toyota", "Corolla", 2021, "AA 123 BB")
+);
+console.log("Lista de Autos después de la modificación:");
+console.log(registro.getVehiculoPorTipo("Auto"));
+
+// Dar de baja una Moto
+console.log("Dando de baja la Moto con patente AA 456 AA...");
+console.log(registro.darDeBajaVehiculo("Moto", "AA 456 AA"));
+console.log("Lista de Motos después de la baja:");
+console.log(registro.getVehiculoPorTipo("Moto"));

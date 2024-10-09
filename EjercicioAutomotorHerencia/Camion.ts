@@ -1,8 +1,25 @@
 import { Vehiculo } from "./vehiculo";
 
 export class Camion extends Vehiculo {
-	constructor(marca: string, modelo: string, tipo: number, patente: string) {
+	private capacidadDeCarga: number;
+
+	constructor(
+		marca: string,
+		modelo: string,
+		tipo: number,
+		patente: string,
+		capacidadDeCarga: number
+	) {
 		super(marca, modelo, tipo, patente);
+		this.capacidadDeCarga = capacidadDeCarga;
+	}
+
+	public getCapacidadDeCarga(): number {
+		return this.capacidadDeCarga;
+	}
+
+	public setCapacidadDeCarga(capacidadDeCarga: number): void {
+		this.capacidadDeCarga = capacidadDeCarga;
 	}
 
 	public getInfo(): string {
@@ -12,23 +29,7 @@ export class Camion extends Vehiculo {
 				Modelo: ${this.modelo}
 				Tipo: ${this.tipo}
 				Patente: ${this.patente}
+				Capacidad de Carga: ${this.capacidadDeCarga} Kg
 		`;
-	}
-
-	// Metodo para acceder a la patente
-	public getPatente(): string {
-		return this.patente;
-	}
-
-	public setInfo(
-		marca: string,
-		modelo: string,
-		tipo: number,
-		patente: string
-	) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.tipo = tipo;
-		this.patente = patente;
 	}
 }

@@ -1,34 +1,35 @@
 import { Vehiculo } from "./vehiculo";
 
 export class Moto extends Vehiculo {
-	constructor(marca: string, modelo: string, tipo: number, patente: string) {
+	private cilindrada: number;
+
+	constructor(
+		marca: string,
+		modelo: string,
+		tipo: number,
+		patente: string,
+		cilindrada: number
+	) {
 		super(marca, modelo, tipo, patente);
+		this.cilindrada = cilindrada;
+	}
+
+	getCilindrada(): number {
+		return this.cilindrada;
+	}
+
+	setCilindrada(cilindrada: number): void {
+		this.cilindrada = cilindrada;
 	}
 
 	public getInfo(): string {
 		return `
-			Vehiculo: Moto
-				Marca: ${this.marca}
-				Modelo: ${this.modelo}
-				Tipo: ${this.tipo}
-				Patente: ${this.patente}
+			 Vehiculo: Moto
+                Marca: ${this.marca}
+                Modelo: ${this.modelo}
+                Tipo: ${this.tipo}
+                Patente: ${this.patente}
+                Cilindrada: ${this.cilindrada} cc
 		`;
-	}
-
-	// Metodo para acceder a la patente
-	public getPatente(): string {
-		return this.patente;
-	}
-
-	public setInfo(
-		marca: string,
-		modelo: string,
-		tipo: number,
-		patente: string
-	) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.tipo = tipo;
-		this.patente = patente;
 	}
 }
